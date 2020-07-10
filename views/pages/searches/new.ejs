@@ -1,0 +1,28 @@
+<!doctype html>
+
+<head>
+  <title>New Search Page</title>
+  <link rel="stylesheet" href = "/styles/reset.css">
+  <link rel="stylesheet" href="/styles/styles.css">
+
+</head>
+
+<body>
+  <h1>New Search by Author</h1>
+
+  <form method = "post" action = "/search-by-author">
+    <input name = "author-search" placeholder = "Search Authors">
+    <button type = "submit">Search Authors</button>
+  </form>
+
+  <h1>New Search by Title</h1>
+
+  <form method = "post" action = "/search-by-title">
+    <input name = "title-search" placeholder = "Search Titles">
+    <button type = "submit">Search Titles</button>
+  </form>
+
+<!-- Do we need this?     -->
+  <script src="server.js"></script>
+</body>
+</html>
