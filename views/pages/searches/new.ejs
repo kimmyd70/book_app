@@ -8,19 +8,19 @@
 </head>
 
 <body>
-  <h1>New Search by Author</h1>
+<!-- Form for Search by Title or Author -->
+  <h1>New Search</h1>
 
-  <form method = "post" action = "/search-by-author">
-    <input name = "author-search" placeholder = "Search Authors">
-    <button type = "submit">Search Authors</button>
+  <form method = "post" action = "/new-search">
+    <input name = "search" placeholder = "Enter Title or Author" value = "userInput">
+    <input type = "radio"  name = "title" value = "intitle">
+    <label for = "title">Title</label>
+    <input type = "radio"  name = "author" value = "inauthor">
+    <label for = "author">Author</label>
+
+    <button type = "submit">Search The Google Books API</button>
   </form>
 
-  <h1>New Search by Title</h1>
-
-  <form method = "post" action = "/search-by-title">
-    <input name = "title-search" placeholder = "Search Titles">
-    <button type = "submit">Search Titles</button>
-  </form>
 
 <!-- Do we need this?     -->
   <script src="server.js"></script>
