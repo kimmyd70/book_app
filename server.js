@@ -25,10 +25,17 @@ app.use(express.static('./public'));
 
 // routes
 
-app.get('/hello',(req,res)=>{
-    res.render('pages/index');
+app.get('/',(req,res)=>{
+  res.render('pages/searches/new');
 });
 
+app.post('/search-by-author',(req,res)=>{
+  console.log(req.body)
+});
+app.post('/search-by-title',(req,res)=>{
+  console.log(req.body)
+
+});
 
 
 //start server

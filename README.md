@@ -26,25 +26,25 @@
 
 Trello #1 -- Load Quickly
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 1 hr
 
-Start time: _____
+Start time: 6:30
 
-Finish time: _____
+Finish time: 7:15
 
-Actual time needed to complete: _____
+Actual time needed to complete: 45 min
 
 ------
 
 Trello #2 -- Search Google API
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 1 hr
 
-Start time: _____
+Start time: 7:20
 
-Finish time: _____
+Finish time: 7:38
 
-Actual time needed to complete: _____
+Actual time needed to complete: 18 min
 
 ------
 
