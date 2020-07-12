@@ -86,9 +86,9 @@ Actual time needed to complete:  1 hr 10
 
 Trello #6 -- Homepage
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 30 min
 
-Start time: _____
+Start time: 3:10
 
 Finish time: _____
 

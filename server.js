@@ -26,7 +26,7 @@ app.use(express.static('./public'));
 // routes
 
 app.get('/',(req,res)=>{
-  res.render('pages/searches/new');
+  res.render('pages/index');
   
 });
 
@@ -34,7 +34,7 @@ app.get('/',(req,res)=>{
 app.post('/searches', handleSearch);
 
 
-app.get('/*', (req,res)=>{
+app.use('*', (req,res)=>{
       res.render('pages/error');
     });
 

@@ -20,6 +20,15 @@
     overflow: scroll;
 }
 
+.container3 {
+    background-color: rgb(226,226,226);
+    margin: 30px auto;
+    height: 650px;
+    text-align: center;
+    padding: 15px;
+    width: 80%;
+}
+
 
 #hamburger {
     float: right;
