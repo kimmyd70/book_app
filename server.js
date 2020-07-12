@@ -9,8 +9,7 @@ const express = require('express');
 const cors = require('cors');
 const pg = require('pg');
 const morgan = require('morgan');
-const  superagent= require('superagent');
-const { request } = require('express');
+const superagent= require('superagent');
 
 //initialize express
 const app = express();
@@ -32,43 +31,50 @@ app.get('/',(req,res)=>{
 
 
 //Need function to change http: to https: (card)
-app.post('/new-search', handleSearch);
+
+
+app.post('/searches', handleSearch);
 
 
 
 function handleSearch(req,res){
-const safeQuery = {
-  q : request.body.userInput,
-  search: request.body.value,
-  parameter: request.body.author || request.body.title,
-  // format: 'json'
-}
-const API = `https://www.googleapis.com/books/v1/volumes?q=+${safeQuery.parameter}:${safeQuery.q}`
+  const safeQuery = {
+    q : req.body.userInput,
+    search: req.body.search,
+    // parameter: req.body.author || req.body.title,
+    // format: 'json'
+  };
 
-//&key=${safeQuery.key}
+  console.log('This is the req.body', req.body.search);
 
-superagent
-.get(API)
-// .query(safeQuery)
+  const API = `https://www.googleapis.com/books/v1/volumes?q=${safeQuery.search}:${safeQuery.q}`;
 
-  .then(data =>{
-    data.items.map(obj =>{
-      return new Book()
+  //&key=${safeQuery.key}
+  console.log(API);
 
+  superagent.get(API)
+  // .query(safeQuery)
+    .then(data =>{
+      console.log(data.body.items[0]);
+      let newData = data.body.items.map(obj =>{
+        return new Book(obj);
+
+      });
+      console.log(newData);
+      res.render('pages/searches/show',{books:newData});
+      console.log('hiii');
     });
-  });
-
-
 }
+
 
 function Book (obj) {
-  this.title = obj.title || ('title is not available');
-  this.image = obj.image || ('https://i.imgur.com/J5LVHEL.jpg');
+  this.title = obj.volumeInfo.title || ('title is not available');
+  this.image = obj.volumeInfo.imageLinks.thumbnail || obj.volumeInfo.imageLinks.smallThumbnail || ('https://i.imgur.com/J5LVHEL.jpg');
   //authors is an array
-  this.author = obj.authors || ('author is unknown');
-  this.description = obj.description || ('description is not available');
-  this.isbn = obj.isbn || ('ISBN is not available');
-  this.categories = obj.categories || ('category is not available');
+  this.author = obj.volumeInfo.authors || ('author is unknown');
+  this.description = obj.volumeInfo.description || ('description is not available');
+  this.isbn = obj.volumeInfo.industryIdentifiers[0].identifier || ('ISBN is not available');
+  // this.categories = obj.categories || ('category is not available');
 }
 
 
