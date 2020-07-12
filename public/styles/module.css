@@ -1,0 +1,74 @@
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+    
+
+h1 {
+    font-size: 30px; 
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: left;
+}
+
+h2 {
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+h3, p {
+    font-size: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+
+
+nav, footer p{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: inline;
+    background-color: black;
+    color: whitesmoke;
+}
+
+nav{
+    margin: 120px;
+}
+
+main {
+    background-color: darkgray;
+    height: 650px;
+}
+
+#search-page-title{
+    background-color: rgb(63, 60, 60);
+    color: whitesmoke;
+    text-align: center;
+    height: 50px;
+    padding-top: 20px;;
+}
+
+#search-criteria{
+    background-color: rgb(226,226,226);
+    margin: 50px auto 0px;
+    height: 40px;
+    text-align: left;
+    padding: 10px;
+    width: 75%;
+    border: none;
+
+}
+
+
+#search-button {
+    background-color: black;
+    color: whitesmoke;
+    text-align: center;
+    height: 40px;
+    width: 80%;
+    
+}
+
+footer {
+    text-align: left;
+    padding: 20px;
+}
