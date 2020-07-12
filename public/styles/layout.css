@@ -1,0 +1,15 @@
+
+
+
+.container {
+    background-color: rgb(226,226,226);
+    margin: 30px auto;
+    height: 30px;
+    text-align: left;
+    padding: 15px;
+    width: 80%;
+}
+
+#hamburger {
+    float: right;
+}
