@@ -1,0 +1,27 @@
+<!doctype html>
+
+<head>
+  <title>New Search Page</title>
+  <link rel="stylesheet" href = "/styles/reset.css">
+  <link rel="stylesheet" href="/styles/styles.css">
+
+</head>
+
+<body>
+  <header>
+
+  </header>
+  <main>
+    <% newData.forEach(book => { %>
+      <img src="<%=book.image%>">
+      <h2> <%= book.title %> </h2>
+      <h3> <%= book.author %> </h3>
+      <p> <%=book.descrption %> </p>
+    <%})%>
+
+  </main>
+  <footer>
+
+  </footer>
+</body>
+</html>

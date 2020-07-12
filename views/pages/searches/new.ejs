@@ -11,11 +11,11 @@
 <!-- Form for Search by Title or Author -->
   <h1>New Search</h1>
 
-  <form method = "post" action = "/new-search">
-    <input name = "search" placeholder = "Enter Title or Author" value = "userInput">
-    <input type = "radio"  name = "title" value = "intitle">
+  <form method = "post" action = "/searches">
+    <input type= text name = "userInput" placeholder = "Enter Title or Author">
+    <input type = "radio"  name = "search" value = "intitle">
     <label for = "title">Title</label>
-    <input type = "radio"  name = "author" value = "inauthor">
+    <input type = "radio"  name = "search" value = "inauthor">
     <label for = "author">Author</label>
 
     <button type = "submit">Search The Google Books API</button>
@@ -23,6 +23,6 @@
 
 
 <!-- Do we need this?     -->
-  <script src="server.js"></script>
+  <!-- <script src="server.js"></script> -->
 </body>
 </html>
