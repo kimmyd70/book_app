@@ -55,12 +55,14 @@ function handleSearch(req,res){
   superagent.get(API)
   // .query(safeQuery)
     .then(data =>{
-      console.log(data.body.items);
+      console.log(data.body.items[0]);
       let newData = data.body.items.map(obj =>{
         return new Book(obj);
 
       });
-      res.render('pages/searches/new', {books:newData});
+      console.log(newData);
+      res.render('pages/searches/show',{books:newData});
+      console.log('hiii');
     });
 }
 
