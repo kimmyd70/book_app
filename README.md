@@ -74,21 +74,21 @@ Actual time needed to complete: 27 min
 
 Trello #5 -- Clean Looking UI
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 1 hr
 
-Start time: _____
+Start time:1pm
 
-Finish time: _____
+Finish time: 2:10
 
-Actual time needed to complete: _____
+Actual time needed to complete:  1 hr 10
 
 ------
 
 Trello #6 -- Homepage
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 30 min
 
-Start time: _____
+Start time: 3:10
 
 Finish time: _____
 

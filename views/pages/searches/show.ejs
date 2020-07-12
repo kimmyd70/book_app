@@ -8,20 +8,30 @@
 </head>
 
 <body>
-  <header>
+  <nav>
+    <ul id = "hamburger">
+      <li>-----</li>
+      <li>-----</li>
+      <li>-----</li> 
+    </ul>
+    <h1>Best Books!</h1>
+  </nav>
 
-  </header>
   <main>
+    <h2 id = "search-page-title">Search Results</h2>
+
+    <div class = "container2">
     <% books.forEach(book => { %>
       <img src="<%=book.image%>">
       <h2> <%= book.title %> </h2>
       <h3> <%= book.author %> </h3>
       <p> <%=book.description %> </p>
     <%})%>
+    </div>
 
   </main>
   <footer>
-
+    <p>&copy 2020, Ashley Casimir and Kim Damalas</p>
   </footer>
 </body>
 </html>

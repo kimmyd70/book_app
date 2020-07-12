@@ -4,14 +4,13 @@
 body {
     background-color: black;
     width: 80%;
-    height: 100%;
     margin: 0px auto;
     text-align: center;
 };
 
 main {
+    overflow: scroll;
     width: 60%;
     margin: 0px auto;
     text-align: center;
-
 }
