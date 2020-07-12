@@ -52,11 +52,11 @@ Trello #3 -- Browse Search Results
 
 Estimate of time needed to complete: 1 hr
 
-Start time: 7:45
+Start time: 7:45pm
 
-Finish time: _____
+Finish time: A different day
 
-Actual time needed to complete: _____
+Actual time needed to complete: 2 hr
 
 ------
 

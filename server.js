@@ -27,44 +27,38 @@ app.use(express.static('./public'));
 
 app.get('/',(req,res)=>{
   res.render('pages/searches/new');
+  
 });
-
-
-//Need function to change http: to https: (card)
 
 
 app.post('/searches', handleSearch);
 
 
+app.get('/*', (req,res)=>{
+      res.render('pages/error');
+    });
 
 function handleSearch(req,res){
   const safeQuery = {
     q : req.body.userInput,
     search: req.body.search,
-    // parameter: req.body.author || req.body.title,
-    // format: 'json'
   };
-
-  console.log('This is the req.body', req.body.search);
-
+  
   const API = `https://www.googleapis.com/books/v1/volumes?q=${safeQuery.search}:${safeQuery.q}`;
-
-  //&key=${safeQuery.key}
-  console.log(API);
-
+  
+  //Need function to change http: to https: (card)
+  
   superagent.get(API)
   // .query(safeQuery)
-    .then(data =>{
-      console.log(data.body.items[0]);
-      let newData = data.body.items.map(obj =>{
-        return new Book(obj);
-
-      });
-      console.log(newData);
-      res.render('pages/searches/show',{books:newData});
-      console.log('hiii');
+  .then(data =>{
+    console.log(data.body.items[0]);
+    let newData = data.body.items.map(obj =>{
+      return new Book(obj);
+      
     });
-}
+    res.render('pages/searches/show',{books:newData});
+  });
+};
 
 
 function Book (obj) {
@@ -80,3 +74,4 @@ function Book (obj) {
 
 //start server
 app.listen(PORT,()=>console.log(`I am listening on ${PORT}`));
+    
