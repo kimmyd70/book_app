@@ -27,43 +27,45 @@ app.use(express.static('./public'));
 
 app.get('/',(req,res)=>{
   res.render('pages/index');
-  
 });
 
 
 app.post('/searches', handleSearch);
+app.get('/searches/new', handleNew);
 
 
 app.use('*', (req,res)=>{
-      res.render('pages/error');
-    });
+  res.render('pages/error');
+});
 
 function handleSearch(req,res){
   const safeQuery = {
     q : req.body.userInput,
     search: req.body.search,
   };
-  
+
   const API = `https://www.googleapis.com/books/v1/volumes?q=${safeQuery.search}:${safeQuery.q}`;
-  
+
   //Need function to change http: to https: (card)
-  
+
   superagent.get(API)
   // .query(safeQuery)
-  .then(data =>{
-    console.log(data.body.items[0]);
-    let newData = data.body.items.map(obj =>{
-      return new Book(obj);
-      
+    .then(data =>{
+      let newData = data.body.items.map(obj =>{
+        return new Book(obj);
+      });
+      console.log(newData);
+      res.render('pages/searches/show',{books:newData});
     });
-    res.render('pages/searches/show',{books:newData});
-  });
-};
+}
 
+function handleNew(req,res){
+  res.render('pages/searches/new');
+}
 
 function Book (obj) {
   this.title = obj.volumeInfo.title || ('title is not available');
-  this.image = obj.volumeInfo.imageLinks.thumbnail || obj.volumeInfo.imageLinks.smallThumbnail || ('https://i.imgur.com/J5LVHEL.jpg');
+  this.image = obj.volumeInfo.imageLinks.thumbnail.replace('http://','https://') || obj.volumeInfo.imageLinks.smallThumbnailreplace('http://','https://') || ('https://i.imgur.com/J5LVHEL.jpg');
   //authors is an array
   this.author = obj.volumeInfo.authors || ('author is unknown');
   this.description = obj.volumeInfo.description || ('description is not available');
@@ -74,4 +76,3 @@ function Book (obj) {
 
 //start server
 app.listen(PORT,()=>console.log(`I am listening on ${PORT}`));
-    
