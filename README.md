@@ -90,6 +90,81 @@ Estimate of time needed to complete: 30 min
 
 Start time: 3:10
 
-Finish time: _____
+Finish time: 4pm (but link not working)
 
-Actual time needed to complete: _____
+Actual time needed to complete: 50 min
+
+## LAB 12
+
+Trello #1 -- Saved Books on Homepage
+
+Estimate of time needed to complete: 1 hr
+
+Start time: 
+
+Finish time: 
+
+Actual time needed to complete: 
+
+------
+
+Trello #2 -- Request info on a single book
+
+Estimate of time needed to complete: 1 hr
+
+Start time: 
+
+Finish time: 
+
+Actual time needed to complete: 
+
+------
+
+Trello #3 -- Add a Book to User Collection
+
+Estimate of time needed to complete: 1 hr
+
+Start time: 
+
+Finish time: 
+
+Actual time needed to complete: 
+
+------
+
+Trello #4 -- No down/slow times with partials
+
+Estimate of time needed to complete: 1 hr
+
+Start time: 
+
+Finish time:
+
+Actual time needed to complete: 
+
+------
+
+Trello #5 -- Clean Looking UI--iterate on styles from before
+
+Estimate of time needed to complete: 1 hr
+
+Start time:
+
+Finish time: 
+
+Actual time needed to complete:  
+
+------
+
+## Lab 13
+
+Trello #6 -- User updates book details
+
+Estimate of time needed to complete: 1 hr
+
+Start time: 
+
+Finish time: 
+
+Actual time needed to complete: 
+
