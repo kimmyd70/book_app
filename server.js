@@ -25,19 +25,17 @@ app.use(express.static('./public'));
 
 // routes
 
-app.get('/',(req,res)=>{
-  res.render('pages/index');
-});
-
-
+app.get('/', handleHome);
 app.post('/searches', handleSearch);
 app.get('/searches/new', handleNew);
+app.use('*', handleError);
 
+//function that renders homepage
+function handleHome(req,res){
+  res.render('pages/index');
+}
 
-app.use('*', (req,res)=>{
-  res.render('pages/error');
-});
-
+//function that queries Book API and renders results
 function handleSearch(req,res){
   const safeQuery = {
     q : req.body.userInput,
@@ -59,13 +57,18 @@ function handleSearch(req,res){
     });
 }
 
+//function that get you to the search page
 function handleNew(req,res){
   res.render('pages/searches/new');
 }
 
+function handleError (req,res){
+  res.render('pages/error');
+}
+
 function Book (obj) {
   this.title = obj.volumeInfo.title || ('title is not available');
-  this.image = obj.volumeInfo.imageLinks.thumbnail.replace('http://','https://') || obj.volumeInfo.imageLinks.smallThumbnailreplace('http://','https://') || ('https://i.imgur.com/J5LVHEL.jpg');
+  this.image = obj.volumeInfo.imageLinks.thumbnail.replace('http://','https://') || obj.volumeInfo.imageLinks.smallThumbnail.replace('http://','https://') || ('https://i.imgur.com/J5LVHEL.jpg');
   //authors is an array
   this.author = obj.volumeInfo.authors || ('author is unknown');
   this.description = obj.volumeInfo.description || ('description is not available');
