@@ -41,7 +41,13 @@ app.use('*', handleError);
 
 //function that renders homepage
 function handleHome(req,res){
-  res.render('pages/index');
+  let SQL = `SELECT * FROM books`;
+
+  return client.query(SQL)
+    .then(results => {
+      console.log(results.rows);
+      res.render('pages/index', {rowResults :results.rows});
+    });
 }
 
 //function that queries Book API and renders results
