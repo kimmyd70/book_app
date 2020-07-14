@@ -10,24 +10,32 @@
 <body>
   <div class = "container3">
     <h1> Welcome!</h1>
-    <img id = "book-pile" src = "/book-pile.jpg">
-    <h2> With this app, you can search books by Title or Author</h2>
-  
     <div id = "entry-link">
-      <a href = "/searches/new" ><h2>Let's Begin</h2></a>
+      <a href = "/searches/new" ><h2 >Let's Search</h2></a>
     </div>
-  </div>
-
-  <h2>Saved Books!</h2>
-  <p> Number of Saved Books: <%=rowResults.length%></p>
-    <% rowResults.forEach(book => { %>
-      <img src="<%=book.image%>">
+    <img id = "book-pile" src = "/book-pile.jpg">
+    <h3> With this app, you can search books by Title or Author</h3>
+  
+    <hr></hr>
+    
+    <h2>Your Saved Books</h2>
+    <h3> Number of Saved Books: <%=rowResults.length%></h3>  
+    <div  class = "container2" id = "savedBooks">
+      <% rowResults.forEach(book => { %>
+      <img src="<%=book.image%>" class = "savedBookImg">
       <h2> <%= book.title %> </h2>
       <h3> <%= book.author %> </h3>
+      <div id = "bookDetails">
+        <h3> ISBN: <%= book.isbn %></h3>
+        <h3> Bookshelf: <%= book.bookshelf %> </h3>
+      </div>
       <p> <%= book.description %> </p>
-      <p> ISBN: <%= book.isbn %></p>
-      <p> Bookshlef: <%= book.bookshelf %> </p>
-    <% })%>
-
+      <% })%>
+    </div>
+    </div>
+    <footer>
+      <p>&copy 2020, Ashley Casimir and Kim Damalas</p>
+    </footer>
+  
 </body>
 </html>
