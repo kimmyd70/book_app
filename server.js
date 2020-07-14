@@ -14,6 +14,10 @@ const superagent= require('superagent');
 //initialize express
 const app = express();
 
+//Client connect for DB
+
+const client = new pg.Client(process.env.DATABASE_URL);
+
 //set up EJS
 app.set('view engine', 'ejs');
 
@@ -22,6 +26,11 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('./public'));
+
+//Client connect
+client.connect()
+  .then(() => console.log('we are up and running'))
+  .catch((error) => console.error('client connect problem', error));
 
 // routes
 
