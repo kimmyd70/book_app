@@ -1,0 +1,10 @@
+
+  <% books.forEach(book => { %>
+    <img src="<%=book.image%>" class = "bookImg">
+    <h2> <%= book.title %> </h2>
+    <h3> <%= book.author %> </h3>
+    <div id = "bookDetails">
+      <h3> ISBN: <%= book.isbn %></h3>
+      <p> <%= book.description %> </p>
+      <hr></hr>
+      <div style="clear: both;"></div>

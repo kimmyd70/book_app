@@ -11,6 +11,7 @@ const pg = require('pg');
 const morgan = require('morgan');
 const superagent= require('superagent');
 
+
 //initialize express
 const app = express();
 
@@ -37,6 +38,7 @@ client.connect()
 app.get('/', handleHome);
 app.post('/searches', handleSearch);
 app.get('/searches/new', handleNew);
+app.get('/books/:id', handleBooks);
 app.use('*', handleError);
 
 //function that renders homepage
@@ -72,11 +74,23 @@ function handleSearch(req,res){
     });
 }
 
-//function that get you to the search page
+//function that gets you to the search page
 function handleNew(req,res){
   res.render('pages/searches/new');
 }
 
+function handleBooks(req,res){
+  let SQL = `SELECT * FROM books WHERE id = $1`;
+
+  let param = [req.params.id];
+  console.log(param);
+
+  client.query(SQL,param)
+    .then(results => {
+      res.render('/pages/books/show', {books: results.rows});
+    });
+}
+//function that handles errors
 function handleError (req,res){
   res.render('pages/error');
 }
