@@ -48,3 +48,17 @@ margin: 0px auto 20px;
 .savedBookImg{
     height: 300px; 
 }
+
+@media screen and (min-width: 992px){
+    .radioBar {
+        display: inline-flex;
+        margin: 30px;
+        width: 20%;
+    }
+
+    .bookImg{
+        float: left;
+        margin: 0px 50px 80px 0px;
+    }
+
+}  
