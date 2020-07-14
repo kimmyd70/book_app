@@ -28,12 +28,17 @@
       <div id = "bookDetails">
         <h3> ISBN: <%= book.isbn %></h3>
         <p> <%= book.description %> </p>
+
+      <!-- //////////////////////////////// -->
+        <form method = "get" action = "/books/:id">
+          <button id = "search-button" type = "submit"><h3>See Details</h3></button>
+        </form>
+      <!-- ///////////////////////////////// -->
         <hr></hr>
         <div style="clear: both;"></div>
       </div>
     <%})%>
     </div>
-
   </main>
   <footer>
     <p>&copy 2020, Ashley Casimir and Kim Damalas</p>

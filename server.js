@@ -38,7 +38,13 @@ client.connect()
 app.get('/', handleHome);
 app.post('/searches', handleSearch);
 app.get('/searches/new', handleNew);
+
+//////////////// NOT WORKING //////////////
+
 app.get('/books/:id', handleBooks);
+
+//////////////////////////////
+
 app.use('*', handleError);
 
 //function that renders homepage
@@ -79,6 +85,7 @@ function handleNew(req,res){
   res.render('pages/searches/new');
 }
 
+//////////////// NOT WORKING //////////////////////////////////////////
 function handleBooks(req,res){
   let SQL = `SELECT * FROM books WHERE id = $1`;
 
@@ -87,9 +94,16 @@ function handleBooks(req,res){
 
   client.query(SQL,param)
     .then(results => {
+      let bookDetails = results.query.items.map(obj =>{
+        return new Book(results);
+      });
+      console.log (results);
       res.render('/pages/books/show', {books: results.rows});
     });
 }
+
+///////////////////////////////////////////////////////////
+
 //function that handles errors
 function handleError (req,res){
   res.render('pages/error');
