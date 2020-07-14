@@ -10,7 +10,7 @@ const cors = require('cors');
 const pg = require('pg');
 const morgan = require('morgan');
 const superagent= require('superagent');
-const { attachCookies } = require('superagent');
+
 
 //initialize express
 const app = express();
@@ -83,10 +83,11 @@ function handleBooks(req,res){
   let SQL = `SELECT * FROM books WHERE id = $1`;
 
   let param = [req.params.id];
+  console.log(param);
 
   client.query(SQL,param)
     .then(results => {
-      res.render('/pages/books/detail', {books: results.rows[0]});
+      res.render('/pages/books/show', {books: results.rows});
     });
 }
 //function that handles errors
