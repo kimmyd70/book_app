@@ -13,8 +13,8 @@
     <div id = "entry-link">
       <a href = "/searches/new" ><h2 >Let's Search</h2></a>
     </div>
+    <h2> With this app, you can search books by Title or Author</h2>
     <img id = "book-pile" src = "/book-pile.jpg">
-    <h3> With this app, you can search books by Title or Author</h3>
   
     <hr></hr>
     
@@ -22,7 +22,7 @@
     <h3> Number of Saved Books: <%=rowResults.length%></h3>  
     <div  class = "container2" id = "savedBooks">
       <% rowResults.forEach(book => { %>
-      <img src="<%=book.image%>" class = "savedBookImg">
+      <img src="<%=book.image%>" class = "bookImg">
       <h2> <%= book.title %> </h2>
       <h3> <%= book.author %> </h3>
       <div id = "bookDetails">
@@ -32,6 +32,7 @@
       <p> <%= book.description %> </p>
       <% })%>
     </div>
+    <div style="clear: both;"></div>
     </div>
     <footer>
       <p>&copy 2020, Ashley Casimir and Kim Damalas</p>
