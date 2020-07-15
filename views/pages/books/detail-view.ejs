@@ -1,7 +1,7 @@
 <!doctype html>
 
 <head>
-  <title>Show Search</title>
+  <title>Details Page</title>
   <link rel="stylesheet" href = "/styles/reset.css">
   <link rel="stylesheet" href="/styles/styles.css">
 
@@ -18,18 +18,11 @@
   </nav>
 
   <main>
-    <h2 id = "search-page-title">Search Results</h2>
+    <h2 id = "search-page-title">Details</h2>
 
     <div class = "container2">
     <% books.forEach(book => { %>
       <img src="<%=book.image%>" class = "bookImg">
-      <!-- //////////////////////////////// -->
-        <form method = "post" action = "/books/:id">
-          <button id = "details-button" type = "submit" name ="<%=book.id%>" value ="<%=book.id%>"><h3>See Details</h3></button>
-        </form>
-        <%console.log ("ISBN is: ", books.isbn)%>
-        
-      <!-- ///////////////////////////////// -->
       <h2> <%= book.title %> </h2>
       <h3> <%= book.author %> </h3>
       <div id = "bookDetails">

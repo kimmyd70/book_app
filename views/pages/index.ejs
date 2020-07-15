@@ -8,14 +8,25 @@
 </head>
 
 <body>
-  <nav>
-    <ul id = "hamburger">
+  <!-- <nav>
+    <!-- <ul id = "hamburger">
       <li>-----</li>
       <li>-----</li>
       <li>-----</li> 
-    </ul>
-    <h1>Welcome to Best Books!</h1>
-  </nav>
+    </ul> -->
+    <!-- <h1>Welcome to Best Books!</h1>
+  </nav> --> 
+
+  <!-- Code referenced from W3 Schools -->
+
+<nav>
+  <ul id="navLinks">
+    <li><a href="index.ejs" class="active">Home</a></li>
+    <li><a href="searches/new.ejs">New Search</a></li>
+  </ul>
+  
+  <h1>Welcome to Best Books!</h1>
+</nav>
 
   <main>
     <h2 id = "search-page-title"></h2>
@@ -35,12 +46,19 @@
       <img src="<%=book.image%>" class = "bookImg">
       <h2> <%= book.title %> </h2>
       <h3> <%= book.author %> </h3>
+      <form method = "post" action = "/books/<%=book.id%>">
+        <button id = "details-button" type = "submit" name ="<%=book.id%>" value ="<%=book.id%>"><h3>See Details</h3></button>
+      </form>
+
       <div id = "bookDetails">
         <h3> ISBN: <%= book.isbn %></h3>
         <h3> Bookshelf: <%= book.bookshelf %> </h3>
       </div>
       <p> <%= book.description %> </p>
       <% })%>
+
+
+
     </div>
     <div style="clear: both;"></div>
   </div>

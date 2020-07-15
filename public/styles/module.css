@@ -48,10 +48,15 @@ nav, footer p{
     display: inline;
     background-color: black;
     color: whitesmoke;
+    margin: 50px;
 }
 
-nav{
-    margin: 120px;
+nav a{
+    color: whitesmoke;
+}
+
+nav ul{
+    float: right;
 }
 
 main {
@@ -105,13 +110,17 @@ main {
 
 }
 
-#search-button, #entry-button{
+#search-button, #entry-button, #details-button{
     background-color: black;
     color: whitesmoke;
     text-align: center;
     height: 40px;
     width: 80%;
     margin: 15px auto;    
+}
+
+#details-button{
+    width: 30%;
 }
 
 footer {

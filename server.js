@@ -39,9 +39,9 @@ app.get('/', handleHome);
 app.post('/searches', handleSearch);
 app.get('/searches/new', handleNew);
 
-//////////////// NOT WORKING //////////////
+//////////////// NOT WORKING--View Details //////////////
 
-app.get('/books/:id', handleBooks);
+app.post('/books/:id', handleBooks);
 
 //////////////////////////////
 
@@ -85,24 +85,27 @@ function handleNew(req,res){
   res.render('pages/searches/new');
 }
 
-//////////////// NOT WORKING //////////////////////////////////////////
+
+////////////// Routing works with ISBN vs ID
+
 function handleBooks(req,res){
   let SQL = `SELECT * FROM books WHERE id = $1`;
 
-  let param = [req.params.id];
-  console.log(param);
+  let params = [req.params.id];
+  console.log(req.params);
 
-  client.query(SQL,param)
-    .then(results => {
-      let bookDetails = results.query.items.map(obj =>{
-        return new Book(results);
-      });
-      console.log (results);
-      res.render('/pages/books/show', {books: results.rows});
-    });
+  client.query(SQL,params)
+  .then(results => {
+    res.render('./pages/books/detail-view', {books: results.rows}); 
+
+    // res.redirect('/books/detail-view');
+
+    ////////// { books: [] }
+    console.log({books: results.rows})   
+    //////////
+  });
 }
 
-///////////////////////////////////////////////////////////
 
 //function that handles errors
 function handleError (req,res){
