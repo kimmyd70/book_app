@@ -39,11 +39,10 @@ app.get('/', handleHome);
 app.post('/searches', handleSearch);
 app.get('/searches/new', handleNew);
 
-//////////////// NOT WORKING--View Details //////////////
 
 app.post('/books/:id', handleBooks);
+app.post('/books', handleSave);
 
-//////////////////////////////
 
 app.use('*', handleError);
 
@@ -86,7 +85,6 @@ function handleNew(req,res){
 }
 
 
-////////////// Routing works with ISBN vs ID
 
 function handleBooks(req,res){
   let SQL = `SELECT * FROM books WHERE id = $1`;
@@ -98,12 +96,29 @@ function handleBooks(req,res){
   .then(results => {
     res.render('./pages/books/detail-view', {books: results.rows}); 
 
-    // res.redirect('/books/detail-view');
-
-    ////////// { books: [] }
-    console.log({books: results.rows})   
-    //////////
   });
+}
+
+function handleSave(req,res){
+  console.log('req.body:', req.body);
+  let SQL = `INSERT INTO books (author, title, isbn, image, description, bookshelf) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`
+  let values= [req.body.author, req.body.title, req.body.isbn, req.body.image, req.body.description, req.body.bookshelf];
+
+
+
+  client.query(SQL, values)
+  // .then(results =>{
+  //   console.log('results', results.rows[0].id)
+  // })
+
+
+  /////////////// FIX THIS////////
+
+  .then(results => {
+    // (res.redirect(`books/${results.rows[0].id}`))
+    (res.redirect('/'))
+  })
+  .catch(err => handleError(err, res))
 }
 
 
