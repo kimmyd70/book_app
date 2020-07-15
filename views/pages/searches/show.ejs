@@ -9,14 +9,13 @@
 
 <body>
   <nav>
-    <ul id = "hamburger">
-      <li>-----</li>
-      <li>-----</li>
-      <li>-----</li> 
+    <ul id="navLinks">
+      <li><a href="/" class="active">Home/Saved Books</a></li>
     </ul>
     <h1>Best Books!</h1>
-  </nav>
 
+  </nav>
+  
   <main>
     <h2 id = "search-page-title">Search Results</h2>
 
@@ -24,8 +23,10 @@
     <% books.forEach(book => { %>
       <img src="<%=book.image%>" class = "bookImg">
 
+      <h2> <%= book.title %> </h2>
+      <h3> <%= book.author %> </h3>
       <form method = "post" action = "/books">
-          <button id = "save-button" type = "submit"><h3>Save This Book</h3></button>
+          <button id = "details-button" type = "submit"><h3>Save This Book</h3></button>
           <input  type = "hidden"  name = "title" value = "<%=book.title%>">
           <input  type = "hidden"  name = "author" value = "<%=book.author%>">
           <input  type = "hidden"  name = "isbn" value = "<%=book.isbn%>">
@@ -36,8 +37,6 @@
 
         </form>
         
-      <h2> <%= book.title %> </h2>
-      <h3> <%= book.author %> </h3>
       <div id = "bookDetails">
         <h3> ISBN: <%= book.isbn %></h3>
         <p> <%= book.description %> </p>

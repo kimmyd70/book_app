@@ -10,11 +10,6 @@
 <body>
 
 <nav>
-  <ul id="navLinks">
-    <li><a href="/" class="active">Home</a></li>
-    <li><a href="/searches/new">New Search</a></li>
-  </ul>
-  
   <h1>Welcome to Best Books!</h1>
 </nav>
 
@@ -31,21 +26,26 @@
     
     <h2>Your Saved Books</h2>
     <h3> Number of Saved Books: <%=rowResults.length%></h3>  
-    <div  class = "container2" id = "savedBooks">
+    <div  class = "container2">
       <% rowResults.forEach(book => { %>
-      <img src="<%=book.image%>" class = "bookImg">
-      <h2> <%= book.title %> </h2>
-      <h3> <%= book.author %> </h3>
-      <form method = "post" action = "/books/<%=book.id%>">
-        <button id = "details-button" type = "submit" name ="<%=book.id%>" value ="<%=book.id%>"><h3>See Details</h3></button>
-      </form>
+        <img src="<%=book.image%>" class = "bookImg">
+        <h2> <%= book.title %> </h2>
+        <h3> <%= book.author %> </h3>
+        <form method = "post" action = "/books/<%=book.id%>">
+          <button id = "details-button" type = "submit" name ="<%=book.id%>" value ="<%=book.id%>"><h3>See Details</h3></button>
+        </form>
 
       <div id = "bookDetails">
         <h3> ISBN: <%= book.isbn %></h3>
         <h3> Bookshelf: <%= book.bookshelf %> </h3>
       </div>
       <p> <%= book.description %> </p>
-      <% })%>
+      
+      <hr></hr>
+      <div style="clear: both;"></div>
+      <%})%>
+      
+    </div>
 
 
 
